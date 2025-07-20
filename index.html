@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업사이클링 숨은그림찾기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="start-page" class="page">
+        <h1>업사이클링 숨은그림찾기</h1>
+        <p>환경을 생각하는 당신의 이름을 알려주세요!</p>
+        <input type="text" id="nickname-input" placeholder="닉네임을 입력하세요">
+        <button id="start-game-button">게임 시작</button>
+    </div>
+
+    <div id="game-page" class="page hidden">
+        <h2 id="game-title"></h2>
+        <div id="timer">남은 시간: <span id="time-left">20</span>초</div>
+        <div id="score">점수: <span id="current-score">0</span>점</div>
+        <div id="found-count">찾은 개수: <span id="current-found-count">0</span>/10개</div>
+        <div id="game-area">
+            </div>
+    </div>
+
+    <div id="result-page" class="page hidden">
+        <h2>게임 결과</h2>
+        <p><span id="final-nickname"></span>님, 최종 점수는 <span id="final-score">0</span>점입니다!</p>
+        <h3>찾은 재료별 메시지</h3>
+        <div id="material-cards">
+            </div>
+        <button id="view-ranking-button">전체 랭킹 보기</button>
+    </div>
+
+    <div id="ranking-page" class="page hidden">
+        <h2>전체 랭킹</h2>
+        <ul id="ranking-list">
+            </ul>
+        <button id="restart-game-button">다시 시작하기</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
