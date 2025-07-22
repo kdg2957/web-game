@@ -3,40 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>업사이클링 숨은그림찾기</title>
+    <title>분리수거 모험</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="start-page" class="page">
-        <h1>업사이클링 숨은그림찾기</h1>
-        <p>환경을 생각하는 당신의 이름을 알려주세요!</p>
-        <input type="text" id="nickname-input" placeholder="닉네임을 입력하세요">
-        <button id="start-game-button">게임 시작</button>
+        <div class="start-content">
+            <h1 class="main-title">RE: PLAY</h1>
+            <h2 class="sub-title">재부팅</h2>
+            <div class="nickname-section">
+                <label for="nickname-input" class="input-label">닉네임</label>
+                <input type="text" id="nickname-input" placeholder="게임에서 사용할 닉네임을 적어주세요" maxlength="4">
+            </div>
+            <button id="show-description-button" class="action-button">게임 설명</button>
+        </div>
     </div>
+
+    <div id="description-page" class="page hidden">
+        <h2 class="description-title">게임 설명</h2>
+        <p class="description-text">
+            닉네임 님과 떠나는 모험! 도시, 바다, 정글로 떠나볼까?<br>
+            20초 안에 세 장소에 숨겨진 업사이클링 재료를 찾아 신기록을 세워보세요
+        </p>
+        <button id="start-game-button" class="action-button">게임 시작!</button>
+    </div>
+
 
     <div id="game-page" class="page hidden">
         <h2 id="game-title"></h2>
-        <div id="timer">남은 시간: <span id="time-left">20</span>초</div>
-        <div id="score">점수: <span id="current-score">0</span>점</div>
-        <div id="found-count">찾은 개수: <span id="current-found-count">0</span>/10개</div>
+        <div class="game-info">
+            <p>남은 시간: <span id="timer-display">20</span>초</p>
+            <p>점수: <span id="score-display">0</span>점</p>
+            <p>찾은 개수: <span id="found-count-display">0</span>개</p>
+        </div>
         <div id="game-area">
             </div>
     </div>
 
     <div id="result-page" class="page hidden">
         <h2>게임 결과</h2>
-        <p><span id="final-nickname"></span>님, 최종 점수는 <span id="final-score">0</span>점입니다!</p>
-        <h3>찾은 재료별 메시지</h3>
-        <div id="material-cards">
-            </div>
-        <button id="view-ranking-button">전체 랭킹 보기</button>
+        <p><span id="final-nickname-display"></span>님, 최종 점수는 <span id="final-score-display"></span>점 입니다!</p>
+        <div id="result-image-display"></div>
+        <button id="restart-button" class="action-button">다시 시작</button>
+        <button id="show-ranking-button" class="action-button">랭킹 보기</button>
     </div>
 
     <div id="ranking-page" class="page hidden">
-        <h2>전체 랭킹</h2>
+        <h2>랭킹</h2>
         <ul id="ranking-list">
             </ul>
-        <button id="restart-game-button">다시 시작하기</button>
+        <button id="back-to-home-button-ranking" class="action-button">홈으로</button>
     </div>
 
     <script src="script.js"></script>
