@@ -1,168 +1,218 @@
-/* 기본 스타일 초기화 */
-body {
-    font-family: 'Arial', sans-serif; /* 글꼴 지정 */
-    margin: 0; /* 페이지 여백 제거 */
-    padding: 0; /* 페이지 안쪽 여백 제거 */
-    background-color: #e0f2f7; /* 연한 하늘색 배경 */
-    color: #333; /* 기본 글자색 */
-    display: flex; /* 자식 요소들을 유연하게 배치 */
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-    min-height: 100vh; /* 화면 전체 높이 사용 */
-    overflow: hidden; /* 내용이 넘쳐도 스크롤바 생기지 않도록 */
+/* ===============================================
+   새로운 시작 페이지 스타일 (KakaoTalk_20250721_163207779.jpg 반영)
+   =============================================== */
+#start-page {
+    background-image: url('images/KakaoTalk_20250721_163207779.jpg'); /* 새로운 시작 화면 배경 이미지 */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* 전체 화면을 덮도록 설정 */
+    display: flex; /* 내용을 중앙에 배치하기 위함 */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 세로 정렬 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    color: #fff; /* 기본 텍스트 색상 (배경에 맞춰 조정) */
+    position: relative; /* 자식 요소의 위치 지정을 위함 */
+    padding: 0; /* page 클래스의 padding 제거 */
+    box-shadow: none; /* page 클래스의 그림자 제거 */
 }
 
-.page {
-    background-color: #ffffff; /* 흰색 배경 */
-    padding: 30px; /* 안쪽 여백 */
-    border-radius: 10px; /* 모서리 둥글게 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    width: 90%; /* 너비 90% */
-    max-width: 500px; /* 최대 너비 500px */
-    box-sizing: border-box; /* 패딩, 보더가 너비에 포함되도록 */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* 부드러운 전환 효과 */
-    position: absolute; /* 겹쳐서 배치 (페이지 전환 효과를 위함) */
+#start-page .start-content {
+    /* start-page 내의 실제 콘텐츠를 담는 영역 스타일 */
+    background-color: rgba(255, 255, 255, 0); /* 완전 투명 또는 배경에 따라 조정 */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px; /* 콘텐츠 영역 너비 제한 */
+    /* 이미지에 있는 중앙 입력창 영역을 고려한 위치 조정 */
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 1;
-}
-
-.page.hidden {
-    opacity: 0; /* 투명하게 만듦 */
-    pointer-events: none; /* 클릭 이벤트 무시 */
-    transform: translate(-50%, -50%) scale(0.9); /* 살짝 작아지면서 사라지는 효과 */
-}
-
-h1, h2 {
-    color: #2a6a8c; /* 진한 파란색 제목 */
-    margin-bottom: 20px;
-}
-
-p {
-    line-height: 1.6; /* 줄 간격 */
-    margin-bottom: 15px;
-}
-
-input[type="text"] {
-    width: calc(100% - 20px); /* 너비 조정 (패딩 고려) */
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-button {
-    background-color: #4CAF50; /* 녹색 버튼 */
-    color: white; /* 흰색 글자 */
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer; /* 마우스 오버 시 손가락 모양 */
-    transition: background-color 0.3s ease; /* 부드러운 색상 전환 */
-}
-
-button:hover {
-    background-color: #45a049; /* 마우스 오버 시 더 진한 녹색 */
-}
-
-/* 게임 페이지 스타일 */
-#game-page #timer, #game-page #score, #game-page #found-count {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #00796b; /* 진한 청록색 */
-}
-
-#game-area {
-    width: 100%;
-    height: 300px; /* 게임 영역 높이 고정 */
-    background-color: #f0f8ff; /* 게임 배경색 */
-    border: 2px solid #a7d9ed; /* 테두리 */
-    border-radius: 8px;
-    margin-top: 20px;
-    position: relative; /* 자식 요소들을 절대 위치로 배치하기 위함 */
-    overflow: hidden; /* 이미지 넘침 방지 */
-}
-
-/* 랭킹 페이지 스타일 */
-#ranking-list {
-    list-style: none; /* 목록 마커 제거 */
-    padding: 0;
-    margin-top: 20px;
-}
-
-#ranking-list li {
-    background-color: #f9f9f9;
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    border-radius: 5px;
+    transform: translate(-50%, -50%); /* 정확히 중앙 배치 */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    font-size: 1.1rem;
 }
 
-#ranking-list li:nth-child(odd) { /* 홀수 번째 항목 배경색 다르게 */
-    background-color: #eceff1;
-}
 
-/* 재료별 카드 스타일 */
-#material-cards {
-    display: flex;
-    flex-wrap: wrap; /* 카드가 넘치면 다음 줄로 */
-    justify-content: center;
-    gap: 15px; /* 카드 사이 간격 */
-    margin-top: 20px;
-}
-
-.material-card {
-    background-color: #e3f2fd; /* 연한 파란색 카드 배경 */
-    border: 1px solid #bbdefb;
-    border-radius: 8px;
-    padding: 15px;
-    width: 200px; /* 카드 너비 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    text-align: left;
-}
-
-.material-card h4 {
-    color: #1976d2; /* 진한 파란색 제목 */
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.material-card p {
-    font-size: 0.9rem;
-    color: #555;
+#start-page .main-title {
+    font-family: 'Press Start 2P', cursive; /* 픽셀 아트 폰트 (필요 시 추가) */
+    font-size: 3em;
+    color: #ffd700; /* 금색 계열 */
+    text-shadow: 4px 4px #000; /* 그림자 효과 */
     margin-bottom: 0;
 }
 
-/* 숨겨진 요소 */
-.hidden {
-    display: none !important; /* 요소를 완전히 숨김 (JavaScript에서 토글) */
+#start-page .sub-title {
+    font-family: 'Press Start 2P', cursive; /* 픽셀 아트 폰트 (필요 시 추가) */
+    font-size: 2em;
+    color: #ffa500; /* 주황색 계열 */
+    text-shadow: 3px 3px #000;
+    margin-top: 5px;
+    margin-bottom: 50px; /* 닉네임 입력란과의 간격 */
 }
 
-/* 미디어 쿼리: 모바일 화면에 최적화 */
-@media (max-width: 768px) {
-    .page {
-        padding: 20px;
-        width: 95%;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-
-    #game-area {
-        height: 250px; /* 모바일에서 게임 영역 높이 조정 */
-    }
-
-    .material-card {
-        width: 100%; /* 모바일에서 카드 너비 100% */
-    }
+#start-page .nickname-section {
+    background-color: #f7e6c3; /* 닉네임 입력창 배경색 (이미지 참고) */
+    border: 3px solid #b8860b; /* 테두리색 */
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px; /* 버튼과의 간격 */
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+    width: 100%; /* 부모 .start-content에 맞춰 */
+    box-sizing: border-box;
 }
+
+#start-page .input-label {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8b4513; /* 갈색 계열 */
+    margin-bottom: 10px;
+    display: block; /* 줄바꿈 */
+    background-color: #fff; /* 닉네임 라벨 배경색 (이미지 참고) */
+    border: 2px solid #b8860b;
+    border-radius: 8px;
+    padding: 5px 15px;
+    position: relative;
+    top: -35px; /* 입력창 위로 띄우기 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+#start-page #nickname-input {
+    width: calc(100% - 20px); /* 패딩 고려 */
+    padding: 15px;
+    margin-top: -15px; /* 라벨과의 간격 조정 */
+    font-size: 1.2em;
+    border: 2px solid #a0522d;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+}
+
+#start-page #nickname-input::placeholder {
+    color: #aaa;
+}
+
+/* ===============================================
+   새로운 게임 설명 페이지 스타일 (KakaoTalk_20250721_121925437.jpg 반영)
+   =============================================== */
+#description-page {
+    background-image: url('images/KakaoTalk_20250721_121925437.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #333;
+    padding: 0;
+    box-shadow: none;
+}
+
+#description-page .page {
+    /* description-page 자체는 body의 flex에 맞춰지므로, 내부 콘텐츠를 별도로 스타일링 */
+    background-color: rgba(255, 255, 255, 0.9); /* 반투명 흰색 배경 */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+#description-page .description-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    color: #ffd700;
+    text-shadow: 3px 3px #000;
+    margin-bottom: 20px;
+    background-color: #f7e6c3; /* 이미지 상단 노란색 타이틀 박스 */
+    border: 3px solid #b8860b;
+    border-radius: 10px;
+    padding: 10px 20px;
+    position: relative;
+    top: -50px; /* 박스를 위로 띄우기 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+}
+
+#description-page .description-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    margin-top: -30px; /* 타이틀과의 간격 조정 */
+    margin-bottom: 30px;
+}
+
+/* ===============================================
+   공통 버튼 스타일
+   =============================================== */
+.action-button {
+    background-color: #ffd700; /* 노란색 계열 (이미지 참고) */
+    color: #8b4513; /* 갈색 계열 */
+    padding: 15px 30px;
+    border: 3px solid #b8860b;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 15px auto; /* 중앙 정렬 */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px rgba(255, 255, 255, 0.5); /* 텍스트 그림자 */
+    display: block; /* 블록 요소로 만들어 margin:auto 작동 */
+}
+
+.action-button:hover {
+    background-color: #e6c200;
+    transform: translateY(-2px); /* 살짝 위로 이동 효과 */
+    box-shadow: 7px 7px rgba(0, 0, 0, 0.4);
+}
+
+.action-button:active {
+    transform: translateY(2px); /* 클릭 시 아래로 이동 효과 */
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ===============================================
+   게임 플레이 페이지 배경 이미지 업데이트
+   =============================================== */
+/* JavaScript에서 game-area의 background-image를 동적으로 설정하므로,
+   여기서는 기본 스타일만 유지하고 기존 stage 관련 배경 설정은 제거하거나 주석 처리 */
+#game-area {
+    /* 기존 스타일 유지 (width, height, position 등) */
+    border-radius: 10px; /* 둥근 모서리 */
+    overflow: hidden; /* 아이템이 배경 밖으로 나가지 않도록 */
+}
+
+/* ===============================================
+   결과 페이지 스타일 수정 (이미지만 표시)
+   =============================================== */
+#result-page {
+    /* 기존 스타일 유지 */
+}
+
+#result-page #result-image-display {
+    width: 250px; /* 이미지 크기 조절 */
+    height: 350px; /* 이미지 크기 조절 */
+    background-size: contain; /* 이미지가 잘리지 않게 조정 */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px auto; /* 중앙 정렬 */
+    border: 2px solid #ccc; /* 테두리 추가 (선택 사항) */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 기존 material-cards-container 관련 스타일 제거 또는 주석 처리 */
+#material-cards-container {
+    display: none; /* 이 요소를 숨김 */
+}
+/* .material-card 관련 스타일도 제거 */
